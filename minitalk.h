@@ -6,7 +6,7 @@
 /*   By: iamongeo <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 22:16:03 by iamongeo          #+#    #+#             */
-/*   Updated: 2022/10/20 22:21:34 by iamongeo         ###   ########.fr       */
+/*   Updated: 2022/10/21 02:25:25 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,14 @@
 # include <signal.h>
 # include <unistd.h>
 
-typedef struct	s_string_chunk_lst
+typedef struct	s_server
 {
-	char						buff[10000];
-	int							len;
-	struct s_string_chunk_lst	*next;
-}	t_slst;
+	int		clt_pid;
+	char	handshaked;
+	char	byte;
+	char	mask;
+	int		len;
+	char	buff[10000];
+}	t_srv;
 
 #endif

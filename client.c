@@ -6,37 +6,11 @@
 /*   By: iamongeo <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:37:55 by iamongeo          #+#    #+#             */
-/*   Updated: 2022/10/20 22:33:30 by iamongeo         ###   ########.fr       */
+/*   Updated: 2022/10/21 03:33:51 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-
-/*
-ssize_t	engage_handshake(int pid)
-{
-	ssize_t		pings[2];
-	sigset_t	sigset;
-	int			i;
-
-	printf("client entering handshake !\n");
-	sigemptyset(&sigset);
-	i = -1;
-	ft_deltatime_usec();
-	while (++i < 2)
-	{
-		sigaddset(&sigset, SIGUSR1);
-		kill(pid, SIGUSR1);
-		sigwait(&sigset, NULL);
-		pings[i] = ft_deltatime_usec();
-	}
-	printf("client handshake over !\n");
-	i = 0;
-	while (++i < 10)
-		pings[0] += pings[i];
-	return (pings[0] / 10 * 2);
-}
-*/
 
 void	close_connection(int srv_pid)
 {
@@ -80,7 +54,7 @@ void	signal_sender(int srv_pid, char *str)
 				kill(srv_pid, SIGUSR2);
 			else
 				kill(srv_pid, SIGUSR1);
-			usleep(100);
+			usleep(300);
 //			printf("cient next char : %c\n", *(str + 1));
 //			usleep(ping);
 		}
