@@ -6,7 +6,7 @@
 /*   By: iamongeo <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:37:55 by iamongeo          #+#    #+#             */
-/*   Updated: 2022/10/21 03:33:51 by iamongeo         ###   ########.fr       */
+/*   Updated: 2022/10/21 20:43:01 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	signal_sender(int srv_pid, char *str)
 	{
 		c = *str;
 		i = -1;
-		printf("cient sending char : %c\n", c);
+//		printf("cient sending char : %c\n", c);
 		while (++i < 8)
 		{
 //			printf("client : mask : %d, bit %d\n", (1 << i), !!(c & (1 << i)));
@@ -54,15 +54,15 @@ void	signal_sender(int srv_pid, char *str)
 				kill(srv_pid, SIGUSR2);
 			else
 				kill(srv_pid, SIGUSR1);
-			usleep(300);
+			usleep(50);
 //			printf("cient next char : %c\n", *(str + 1));
 //			usleep(ping);
 		}
 		str++;
-		printf("cient next char : %c\n", *str);
+//		printf("cient next char : %c\n", *str);
 	}
 	close_connection(srv_pid);
-	printf("client : signal transport over\n");
+//	printf("client : signal transport over\n");
 }
 
 int	main(int argc, char **argv)

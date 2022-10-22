@@ -6,7 +6,7 @@
 /*   By: iamongeo <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 16:01:04 by iamongeo          #+#    #+#             */
-/*   Updated: 2022/10/21 03:36:20 by iamongeo         ###   ########.fr       */
+/*   Updated: 2022/10/21 20:41:51 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "minitalk.h"
@@ -33,7 +33,7 @@ void	handle_signals(int sig, siginfo_t *siginfo, void *context)
 		g_srv.clt_pid = siginfo->si_pid;
 		if (siginfo)
 			g_srv.clt_pid = siginfo->si_pid;
-		g_srv.handshaked = 1;
+		g_srv.handshaked = 1;	
 		g_srv.byte = 0;
 		g_srv.mask = 0;
 		g_srv.len = 0;
@@ -70,9 +70,9 @@ int	main(void)
 	sigaction(SIGUSR2, &sa, NULL);
 	while (1)
 	{
-		ft_printf("server : going pause mode ...\n");
+//		ft_printf("server : going pause mode ...\n");
 		pause();
-		ft_printf("server : back from pause mode ...\n");
+//		ft_printf("server : back from pause mode ...\n");
 	}
 	return (0);
 }
